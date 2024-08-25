@@ -4,6 +4,9 @@
   <title>Scan QRCode - Connext</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
   <style>
+    * {
+      font-family: 'Droid Sans', arial, serif;
+    }
     video {
       max-width: 100%;
       aspect-ratio: 1;
@@ -27,6 +30,10 @@
       height: 40px;
       width: 80px; 
     }
+    .output {
+      display: flex;
+      align-items: center;
+    }
     .torchToggle {
       height: 30px;
       width: 30px; 
@@ -40,15 +47,11 @@
 </head>
 <body>
   <label>
-    Powered by Connext
-  </label>
-    <br>
-  <label>
     Camera:
     <select id="select-camera"></select>
   </label>
   <label>
-    <select id="select-resolution">
+    <select hidden id="select-resolution">
       <option value="720x720">720x720</option>
       <option value="1080x1080" selected>1080x1080</option>
       <option value="1680x1680">1680x1680</option>
@@ -60,9 +63,9 @@
   <canvas hidden id="hiddenCanvasQRScan"></canvas>
 
   <br/>
-  <label>Zoom: </label>
-  <input type="range" min="1" step="0.1" max="10" value="1" class="slider" id="zoomSlider">
-  <label id="zoomLabel">1</label>
+  <label hidden >Zoom: </label>
+  <input hidden type="range" min="1" step="0.1" max="10" value="1" class="slider" id="zoomSlider">
+  <label hidden id="zoomLabel">1</label>
   <br/>
   <div>
     <div class="focusSquare" ></div>
@@ -70,10 +73,27 @@
     </video>
   </div>
   <div class="output">
-    <button class="startcamera" onclick="startCamera();">[SCAN]</button>
-    <label> Try with Flash On </label>
+    <button class="startcamera" onclick="startCamera();" style="font-weight:bold;">[QUÉT QR]</button>
+    <label style="margin-left:24px;"> Bật Flash </label>
     <input class="torchToggle" type="checkbox" id="torch">
   </div>
+  <br/>
+  <label style="font-weight:bold;">
+  Chúng tôi xin cảm ơn sự hỗ trợ của bạn.
+  </label>
+  <p style="white-space: pre-line">
+  Hướng dẫn quét QR code: 
+  1. Bấm nút '[QUÉT QR]'.
+  2. Đặt QR code vào khung trắng ở giữa.
+  3. Khi ứng dụng quét thành công, sẽ có một thông báo hiển thị lên kèm nội dung của QR đã quét được. 
+  4. Bấm '[QUÉT QR]' để thực hiện lại.
+  Lưu ý:
+  - Nếu camera không hiển thị, có thể do chưa được cấp quyền. Bạn vui lòng kiểm tra mở quyền, có thể tham khảo mục Android, iOS ở link (mượn tạm) này <a href="https://www.thegioididong.com/hoi-dap/khong-chup-duoc-anh-khi-ung-tuyen-tren-web-tgdd-day-la-1243340">khong-chup-duoc-anh</a>
+  - Nếu khó quét QR, bạn vui lòng thử bấm 'Bật Flash' (SAU KHI ĐÃ BẤM [QUÉT QR]). 
+  </p>
+  <label>
+    @2024 Connext
+  </label>
   <br/>
   <label id="scanStatus"></label>
   <br/>
@@ -83,6 +103,7 @@
 
 
   <script src="./qr-scanner.umd.min.js"></script>
+  <link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <!-- <script async src="./opencv.js"></script> -->
   <script type="text/javascript">
 
