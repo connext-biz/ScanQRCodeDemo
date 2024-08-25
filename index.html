@@ -461,7 +461,8 @@
       let resultImage = imageData;
       if (imageProcessingFunc) resultImage = imageProcessingFunc(imageData, threshold);
       ctxResult.putImageData(resultImage, 0, 0);
-      return await scanImage(canvasResult, atempStr);
+      // return await scanImage(canvasResult, atempStr);
+      return await scanImage(canvasResult,"");
     }
 
     async function tryDecodeWithThreshold(imageData, contextResult, canvasResult, threshold, atemp) {
