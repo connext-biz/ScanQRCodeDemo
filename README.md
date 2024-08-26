@@ -8,7 +8,7 @@ Scanning QR code in a web enviroment is hard for the small and complex one, e.g.
 
 Demo tools from html5-qrcode, zxing, or qr-scanner can't detect QRCode in VNCI.
 
-Scanning QRCode has 3 steps:
+Scanning QR code has 3 steps:
 1. Capture image from camera via WebRTC.
 2. Do some image processing.
 3. Decode QR code from processed images.
@@ -16,7 +16,7 @@ Scanning QRCode has 3 steps:
 ### To improve the scanning quality for VNCI, we do:
 1. Capture image from camera via WebRTC. Users can zoom the camera, and use Flash for trying.
 2. Image processing: grayscale and blackwhite.
-3. QRCode Decode: using qr-scanner for scanning. [UMD build](https://github.com/nimiq/qr-scanner?tab=readme-ov-file#single-image-scanning)
+3. QR code decoding: using qr-scanner. [UMD build](https://github.com/nimiq/qr-scanner?tab=readme-ov-file#single-image-scanning)
 
 **The image processing parameters aren't optimized yet.**
 
@@ -31,5 +31,5 @@ We do some manual testing on our own devices:
 
 Note: The scanning speed is related to the auto-focus function of the device.
 
-## Lisence
+## License
 @2024 Connext
