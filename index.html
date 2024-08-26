@@ -74,7 +74,7 @@
   </div>
   <div class="output">
     <button class="startcamera" onclick="startCamera();" style="font-weight:bold;">[QUÉT QR]</button>
-    <label style="margin-left:24px;"> Bật Flash </label>
+    <label id="flashlable" style="margin-left:24px;"> Bật Flash </label>
     <input class="torchToggle" type="checkbox" id="torch">
   </div>
   <br/>
@@ -89,7 +89,7 @@
   4. Bấm '[QUÉT QR]' để thực hiện lại.
   Lưu ý:
   - Nếu camera không hiển thị, có thể do chưa được cấp quyền. Bạn vui lòng kiểm tra mở quyền, có thể tham khảo mục Android, iOS ở link (mượn tạm) này <a href="https://www.thegioididong.com/hoi-dap/khong-chup-duoc-anh-khi-ung-tuyen-tren-web-tgdd-day-la-1243340">khong-chup-duoc-anh</a>
-  - Nếu khó quét QR, bạn vui lòng thử bấm 'Bật Flash' (SAU KHI ĐÃ BẤM [QUÉT QR]). 
+  - Nếu khó quét QR, bạn vui lòng thử bấm 'Bật Flash' (SAU KHI ĐÃ BẤM [QUÉT QR]). Một số thiết bị không cho ứng dụng bật Flash.
   </p>
   <label>
     @2024 Connext
@@ -117,6 +117,7 @@
     let scanStatus = document.getElementById("scanStatus");
     let slider = document.getElementById("zoomSlider");
     let output = document.getElementById("zoomLabel");
+    let flashlabel = document.getElementById('flashlable');
     let btnTorch = document.getElementById('torch');
 
     let cameras = [];
@@ -194,6 +195,8 @@
        
       }else{
       //  alert("This camera does not support zoom");
+        flashlabel.style.display = 'none';
+        btnTorch.style.display = 'none';
       }
     }
 
