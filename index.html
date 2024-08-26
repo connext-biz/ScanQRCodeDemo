@@ -119,6 +119,7 @@
     let output = document.getElementById("zoomLabel");
     let flashlabel = document.getElementById('flashlable');
     let btnTorch = document.getElementById('torch');
+    let cameraSelectList =  document.getElementById("select-camera");;
 
     let cameras = [];
     let track;
@@ -154,6 +155,10 @@
       zoomLabel.innerHTML = this.value;
       setCameraZoom(this.value);
     }
+
+    cameraSelectList.addEventListener('change', function() {
+      startCamera();
+    });
 
     btnTorch.addEventListener('change', function() {
       if (track ) {
